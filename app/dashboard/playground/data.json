@@ -1,0 +1,39 @@
+{
+    "lineChartData": [
+      { "date": "Jan", "value": 100 },
+      { "date": "Feb", "value": 120 },
+      { "date": "Mar", "value": 110 },
+      { "date": "Apr", "value": 140 },
+      { "date": "May", "value": 130 },
+      { "date": "Jun", "value": 160 }
+    ],
+    "barChartData": [
+      { "name": "A", "value": 40 },
+      { "name": "B", "value": 30 },
+      { "name": "C", "value": 20 },
+      { "name": "D", "value": 50 },
+      { "name": "E", "value": 35 }
+    ],
+    "pieChartData": [
+      { "name": "Group A", "value": 400 },
+      { "name": "Group B", "value": 300 },
+      { "name": "Group C", "value": 300 },
+      { "name": "Group D", "value": 200 }
+    ],
+    "areaChartData": [
+      { "date": "2023-01", "value": 200 },
+      { "date": "2023-02", "value": 250 },
+      { "date": "2023-03", "value": 180 },
+      { "date": "2023-04", "value": 300 },
+      { "date": "2023-05", "value": 280 },
+      { "date": "2023-06", "value": 350 }
+    ],
+    "scatterChartData": [
+      { "x": 100, "y": 200, "z": 200 },
+      { "x": 120, "y": 100, "z": 260 },
+      { "x": 170, "y": 300, "z": 400 },
+      { "x": 140, "y": 250, "z": 280 },
+      { "x": 150, "y": 400, "z": 500 },
+      { "x": 110, "y": 280, "z": 200 }
+    ]
+  }
