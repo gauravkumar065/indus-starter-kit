@@ -8,44 +8,75 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 import { Check, Menu } from "lucide-react";
+import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
+import Link from "next/link";
+import { ModeToggle } from "@/components/mode-toggle";
+import { SignedOut, SignInButton, SignedIn, UserButton } from "@clerk/nextjs";
 import {
-  Sheet,
-  SheetContent,
-  SheetHeader,
-  SheetTitle,
-  SheetTrigger,
-} from "@/components/ui/sheet";
+  NavigationMenu,
+  NavigationMenuItem,
+  NavigationMenuLink,
+  NavigationMenuList,
+} from "@/components/ui/navigation-menu";
 
 export default function LandingPage() {
+  const navItems = [
+    { title: "Features", href: "/features" },
+    { title: "Pricing", href: "/pricing" },
+    { title: "Contact", href: "/contact" },
+  ];
   return (
     <div className="flex min-h-screen flex-col">
       {/* Navbar */}
-      <header className="bg-background/95 supports-[backdrop-filter]:bg-background/60 fixed z-50 flex h-14 w-full items-center px-4 backdrop-blur lg:px-6">
-        <nav className="flex flex-1 items-center justify-between">
-          <div className="text-xl font-bold">SaaS Starter</div>
-          <div className="hidden gap-4 md:flex">
-            <Button variant="ghost">Features</Button>
-            <Button variant="ghost">Pricing</Button>
-            <Button variant="ghost">Contact</Button>
+      <header className="bg-background/95 supports-[backdrop-filter]:bg-background/60 sticky top-0 z-50 w-full border-b backdrop-blur">
+        <div className="container flex h-14 items-center">
+          <Link href="/" className="mr-6 flex items-center space-x-2">
+            <span className="font-bold">SaaS Starter</span>
+          </Link>
+          <NavigationMenu className="hidden md:flex">
+            <NavigationMenuList>
+              {navItems.map((item) => (
+                <NavigationMenuItem key={item.title}>
+                  <NavigationMenuLink href={item.href} className="px-4 py-2">
+                    {item.title}
+                  </NavigationMenuLink>
+                </NavigationMenuItem>
+              ))}
+            </NavigationMenuList>
+          </NavigationMenu>
+          <div className="flex flex-1 items-center justify-end space-x-4">
+            <nav className="flex items-center space-x-2">
+              <ModeToggle />
+              <SignedOut>
+                <SignInButton />
+              </SignedOut>
+              <SignedIn>
+                <UserButton />
+              </SignedIn>
+            </nav>
+            <Sheet>
+              <SheetTrigger asChild>
+                <Button variant="ghost" size="icon" className="md:hidden">
+                  <Menu className="h-5 w-5" />
+                  <span className="sr-only">Toggle menu</span>
+                </Button>
+              </SheetTrigger>
+              <SheetContent side="right">
+                <nav className="flex flex-col space-y-4">
+                  {navItems.map((item) => (
+                    <Link
+                      key={item.title}
+                      href={item.href}
+                      className="block px-2 py-1"
+                    >
+                      {item.title}
+                    </Link>
+                  ))}
+                </nav>
+              </SheetContent>
+            </Sheet>
           </div>
-          <Sheet>
-            <SheetTrigger asChild>
-              <Button variant="ghost" size="icon" className="md:hidden">
-                <Menu className="h-5 w-5" />
-              </Button>
-            </SheetTrigger>
-            <SheetContent>
-              <SheetHeader>
-                <SheetTitle>Menu</SheetTitle>
-              </SheetHeader>
-              <div className="mt-4 flex flex-col gap-4">
-                <Button variant="ghost">Features</Button>
-                <Button variant="ghost">Pricing</Button>
-                <Button variant="ghost">Contact</Button>
-              </div>
-            </SheetContent>
-          </Sheet>
-        </nav>
+        </div>
       </header>
 
       <main className="flex-1">
@@ -60,7 +91,12 @@ export default function LandingPage() {
                 Get your SaaS off the ground quickly with our starter template.
                 Built with Next.js, Tailwind, and shadcn/ui.
               </p>
-              <Button size="lg">Get Started</Button>
+              <Link
+                href="/dashboard"
+                className={`inline-flex items-center justify-center rounded-md bg-pink-600 px-4 py-2 font-medium text-white transition-colors duration-200 hover:bg-pink-700`}
+              >
+                Get Started
+              </Link>
             </div>
           </div>
         </section>

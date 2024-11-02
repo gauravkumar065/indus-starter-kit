@@ -8,6 +8,7 @@ import {
   BreadcrumbPage,
 } from "@/components/ui/breadcrumb";
 import { SidebarTrigger } from "@/components/ui/sidebar";
+import { SignedOut, SignInButton, SignedIn, UserButton } from "@clerk/nextjs";
 import { Separator } from "@radix-ui/react-separator";
 import React from "react";
 
@@ -31,8 +32,14 @@ function DashboardNavbar() {
               </BreadcrumbItem>
             </BreadcrumbList>
           </Breadcrumb>
-          <div className="absolute right-5">
+          <div className="absolute right-5 flex gap-5">
             <ModeToggle />
+            <SignedOut>
+              <SignInButton />
+            </SignedOut>
+            <SignedIn>
+              <UserButton />
+            </SignedIn>
           </div>
         </div>
       </header>
