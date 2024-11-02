@@ -22,7 +22,7 @@ import {
   CartesianGrid,
   ResponsiveContainer,
 } from "recharts";
-import data from "./data.json";
+import data from "./_data/data.json";
 
 export default function Dashboard() {
   return (
