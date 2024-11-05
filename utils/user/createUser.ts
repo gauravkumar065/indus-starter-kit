@@ -13,10 +13,10 @@ export const userCreate = async ({
         const user = await prisma.user.create({
             data: {
                 email,
-                first_name,
-                last_name,
-                profile_image_url,
-                user_id,
+                firstName: first_name,
+                lastName: last_name,
+                profileImageUrl: profile_image_url,
+                userId: user_id,
             },
         });
 

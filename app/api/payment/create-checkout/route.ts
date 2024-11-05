@@ -5,11 +5,10 @@ import Stripe from "stripe";
 const stripe = new Stripe(process.env.STRIPE_SECRET_KEY!);
 
 export async function POST(req: NextRequest) {
-    const user = await currentUser()
+    const user = await currentUser();
     if (!user) return NextResponse.json({ error: "User Not Authorized" });
     const body = await req.json();
     const { price } = body;
-
 
     try {
         const session = await stripe.checkout.sessions.create({

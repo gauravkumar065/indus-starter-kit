@@ -7,11 +7,10 @@ const stripePromise = loadStripe(process.env.NEXT_PUBLIC_STRIPE_PUBLIC_KEY!);
 
 export function SubscribeButton({ plan }: any) {
   //   console.log("Logger -> SubscribeButton -> plan:", plan);
-  const { userId, isLoaded } = useAuth();
+  // const { userId, isLoaded } = useAuth();
 
   const handleSubscribe = async () => {
-    console.log("clicked", userId, isLoaded);
-    if (!userId || !isLoaded) return;
+    // if (!userId || !isLoaded) return;
 
     try {
       const response = await fetch("/api/payment/create-checkout", {
@@ -19,8 +18,6 @@ export function SubscribeButton({ plan }: any) {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
           price: plan.priceId,
-          success_url: `${process.env.FRONTEND_URL}/success`,
-          cancel_url: `${process.env.FRONTEND_URL}/cancel`,
         }),
       });
 
@@ -31,13 +28,13 @@ export function SubscribeButton({ plan }: any) {
         sessionId,
       });
     } catch (error) {
-      console.error("Error:", error);
+      console.log("Error:", error);
     }
   };
 
   return (
     <Button
-      className="w-full"
+      className="w-full bg-pink-600"
       variant={plan.featured ? "default" : "outline"}
       size="lg"
       onClick={handleSubscribe}

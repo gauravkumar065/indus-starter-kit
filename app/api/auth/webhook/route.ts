@@ -1,5 +1,5 @@
-import { userCreate } from "@/utils/data/user/createUser";
-import { userUpdate } from "@/utils/data/user/updateUser";
+import { userCreate } from "@/utils/user/createUser";
+import { userUpdate } from "@/utils/user/updateUser";
 import { WebhookEvent } from "@clerk/nextjs/server";
 import { headers } from "next/headers";
 import { NextResponse } from "next/server";
