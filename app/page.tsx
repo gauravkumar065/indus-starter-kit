@@ -36,6 +36,7 @@ import {
   navigationMenuTriggerStyle,
 } from "@/components/ui/navigation-menu";
 import { cn } from "@/lib/utils";
+import { SubscribeButton } from "@/components/checkout-button";
 
 export default function LandingPage() {
   const navItems = [
@@ -48,6 +49,8 @@ export default function LandingPage() {
       name: "Starter",
       price: "$9",
       description: "Perfect for individuals just getting started",
+      priceId: "price_1Q1LkBB5cDC4kiMov1u9Yv5x",
+      featured: false,
       features: [
         "1 User",
         "1GB Storage",
@@ -60,6 +63,7 @@ export default function LandingPage() {
       name: "Pro",
       price: "$19",
       description: "Best for growing teams and businesses",
+      priceId: "price_1Q1LkBB5cDC4kiMov1u9Yv5x",
       featured: true,
       features: [
         "5 Users",
@@ -74,6 +78,8 @@ export default function LandingPage() {
       name: "Enterprise",
       price: "$49",
       description: "For large-scale organizations",
+      priceId: "price_1Q1LkBB5cDC4kiMov1u9Yv5x",
+      featured: false,
       features: [
         "Unlimited Users",
         "100GB Storage",
@@ -300,13 +306,7 @@ export default function LandingPage() {
                     </ul>
                   </CardContent>
                   <CardFooter className="pt-6">
-                    <Button
-                      className="w-full"
-                      variant={plan.featured ? "default" : "outline"}
-                      size="lg"
-                    >
-                      Get Started
-                    </Button>
+                    <SubscribeButton plan={plan} />
                   </CardFooter>
                 </Card>
               ))}
