@@ -1,22 +1,5 @@
 import { Button } from "@/components/ui/button";
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardFooter,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card";
-import {
-  ArrowRight,
-  Badge,
-  Check,
-  Layout,
-  Menu,
-  Paintbrush,
-  Puzzle,
-  Rocket,
-} from "lucide-react";
+import { Menu, Rocket } from "lucide-react";
 import {
   Sheet,
   SheetContent,
@@ -26,7 +9,7 @@ import {
   SheetTrigger,
 } from "@/components/ui/sheet";
 import Link from "next/link";
-import { ModeToggle } from "@/components/mode-toggle";
+import { ModeToggle } from "@/components/theme/mode-toggle";
 import { SignedOut, SignInButton, SignedIn, UserButton } from "@clerk/nextjs";
 import {
   NavigationMenu,
@@ -39,6 +22,7 @@ import { cn } from "@/lib/utils";
 import FeatureSection from "@/components/landing/feature";
 import PricingSection from "@/components/landing/pricing";
 import HeroSection from "@/components/landing/hero";
+import Footer from "@/components/landing/footer";
 
 export default function LandingPage() {
   const navItems = [
@@ -177,20 +161,7 @@ export default function LandingPage() {
       </main>
 
       {/* Footer */}
-      <footer className="w-full border-t py-6">
-        <div className="container mx-auto px-4 md:px-6">
-          <div className="flex flex-col items-center justify-between gap-4 md:flex-row">
-            <p className="text-muted-foreground text-sm">
-              © 2024 SaaS Starter. All rights reserved.
-            </p>
-            <div className="flex gap-4">
-              <Button variant="ghost">Terms</Button>
-              <Button variant="ghost">Privacy</Button>
-              <Button variant="ghost">Contact</Button>
-            </div>
-          </div>
-        </div>
-      </footer>
+      <Footer />
     </div>
   );
 }

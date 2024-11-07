@@ -1,10 +1,9 @@
 "use client";
 import React from "react";
 import { motion } from "framer-motion";
-import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
-import { cn } from "@/lib/utils";
 import Ripple from "@/components/ui/ripple";
+import Link from "next/link";
 
 const HeroSection = () => {
   return (
@@ -34,13 +33,13 @@ const HeroSection = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.4 }}
           >
-            <Button
-              variant="default"
+            <Link
+              href="/dashboard"
               className="inline-flex items-center rounded-md bg-white px-6 py-3 font-medium text-black transition-colors dark:bg-white dark:text-black"
             >
               Get Started
               <ArrowRight className="ml-2 h-5 w-5" />
-            </Button>
+            </Link>
           </motion.div>
         </div>
       </div>

@@ -1,9 +1,10 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
-import { ThemeProvider } from "@/components/theme-provider";
+import { ThemeProvider } from "@/components/theme/theme-provider";
 import { ClerkProvider } from "@clerk/nextjs";
 import "./globals.css";
+import { Toaster } from "@/components/ui/toaster";
 
 const geistMono = localFont({
   src: "./fonts/GeistMonoVF.woff",
@@ -33,6 +34,7 @@ export default function RootLayout({
           >
             {children}
           </ThemeProvider>
+          <Toaster />
         </body>
       </html>
     </ClerkProvider>
