@@ -25,6 +25,7 @@ export const getSubscription = async () => {
             }
         });
 
+        console.log("Created user:", subscriptionData);
         return subscriptionData;
     } catch (error: any) {
         console.error("Error creating user:", error);

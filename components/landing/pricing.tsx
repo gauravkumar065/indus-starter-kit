@@ -11,7 +11,7 @@ import { Badge } from "@/components/ui/badge";
 import { Check } from "lucide-react";
 import { SubscribeButton } from "@/components/landing/checkout-button";
 
-const PricingSection = ({ plans }) => {
+const PricingSection = ({ plans }: { plans: any }) => {
   return (
     <section className="from-background to-secondary/20 w-full bg-gradient-to-b py-24">
       <div className="container mx-auto px-4 md:px-6">
@@ -25,7 +25,7 @@ const PricingSection = ({ plans }) => {
         </div>
 
         <div className="mt-12 grid gap-8 md:grid-cols-2 lg:grid-cols-3">
-          {plans.map((plan) => (
+          {plans.map((plan: any) => (
             <Card
               key={plan.name}
               className={`relative flex flex-col ${plan.featured ? "border-primary scale-105 shadow-lg" : ""}`}
@@ -47,7 +47,7 @@ const PricingSection = ({ plans }) => {
               </CardHeader>
               <CardContent className="flex-1">
                 <ul className="space-y-3">
-                  {plan.features.map((feature) => (
+                  {plan.features.map((feature: any) => (
                     <li key={feature} className="flex items-center">
                       <Check className="text-primary mr-2 h-4 w-4" />
                       <span>{feature}</span>
