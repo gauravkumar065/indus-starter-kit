@@ -36,7 +36,9 @@ import {
   navigationMenuTriggerStyle,
 } from "@/components/ui/navigation-menu";
 import { cn } from "@/lib/utils";
-import { SubscribeButton } from "@/components/checkout-button";
+import FeatureSection from "@/components/landing/feature";
+import PricingSection from "@/components/landing/pricing";
+import HeroSection from "@/components/landing/hero";
 
 export default function LandingPage() {
   const navItems = [
@@ -89,30 +91,6 @@ export default function LandingPage() {
         "Advanced Security",
         "API Access",
       ],
-    },
-  ];
-
-  const features = [
-    {
-      title: "Next.js App Router",
-      description:
-        "Build intuitive and fast web applications with the latest Next.js routing system.",
-      icon: <Layout className="h-6 w-6" />,
-      color: "bg-blue-500",
-    },
-    {
-      title: "Tailwind CSS",
-      description:
-        "Create stunning designs quickly with utility-first CSS framework.",
-      icon: <Paintbrush className="h-6 w-6" />,
-      color: "bg-teal-500",
-    },
-    {
-      title: "shadcn/ui Components",
-      description:
-        "Implement beautiful, accessible UI components to enhance user experience.",
-      icon: <Puzzle className="h-6 w-6" />,
-      color: "bg-purple-500",
     },
   ];
 
@@ -189,130 +167,13 @@ export default function LandingPage() {
 
       <main className="flex-1">
         {/* Hero Section */}
-        <section className="flex min-h-[calc(100vh-3.5rem)] w-full items-center justify-center">
-          <div className="container mx-auto px-4 md:px-6">
-            <div className="mx-auto max-w-3xl text-center">
-              <h1 className="text-4xl font-bold tracking-tighter sm:text-5xl md:text-6xl">
-                Launch Your SaaS Faster
-              </h1>
-              <p className="text-muted-foreground mt-6 text-lg md:text-xl">
-                Get your SaaS off the ground quickly with our starter template.
-                Built with Next.js, Tailwind, and shadcn/ui.
-              </p>
-              <div className="mt-8">
-                <Link
-                  href="/dashboard"
-                  className="inline-flex items-center justify-center rounded-md bg-pink-600 px-6 py-3 font-medium text-white transition-colors hover:bg-pink-700"
-                >
-                  Get Started
-                </Link>
-              </div>
-            </div>
-          </div>
-        </section>
+        <HeroSection />
 
         {/* Features Section */}
-        <section className="w-full py-24">
-          <div className="container mx-auto px-4 md:px-6">
-            <div className="mb-12 text-center">
-              <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">
-                Key Features
-              </h2>
-              <p className="text-muted-foreground mx-auto mt-4 max-w-3xl">
-                Leverage these powerful tools and technologies to build your
-                next SaaS project quickly and efficiently.
-              </p>
-            </div>
-            <div className="mt-12 grid gap-8 md:grid-cols-2 lg:grid-cols-3">
-              {features.map((feature) => (
-                <Card
-                  key={feature.title}
-                  className="flex flex-col overflow-hidden transition-all hover:shadow-lg"
-                >
-                  <CardHeader className="pb-4">
-                    <div className="flex items-center gap-2">
-                      <Badge
-                        className={`${feature.color} text-white`}
-                        variant="secondary"
-                      >
-                        {feature.icon}
-                      </Badge>
-                      <CardTitle>{feature.title}</CardTitle>
-                    </div>
-                  </CardHeader>
-                  <CardContent className="flex-grow">
-                    <CardDescription className="text-muted-foreground">
-                      {feature.description}
-                    </CardDescription>
-                  </CardContent>
-                  <CardContent className="pt-0">
-                    <a
-                      href="#"
-                      className="text-primary inline-flex items-center text-sm font-medium"
-                    >
-                      Learn more
-                      <ArrowRight className="ml-1 h-4 w-4" />
-                    </a>
-                  </CardContent>
-                </Card>
-              ))}
-            </div>
-          </div>
-        </section>
+        <FeatureSection />
 
         {/* Pricing Section */}
-        <section className="from-background to-secondary/20 w-full bg-gradient-to-b py-24">
-          <div className="container mx-auto px-4 md:px-6">
-            <div className="mx-auto max-w-2xl text-center">
-              <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">
-                Simple, Transparent Pricing
-              </h2>
-              <p className="text-muted-foreground mt-4 text-lg">
-                Choose the perfect plan for your needs. No hidden fees.
-              </p>
-            </div>
-
-            <div className="mt-12 grid gap-8 md:grid-cols-2 lg:grid-cols-3">
-              {plans.map((plan) => (
-                <Card
-                  key={plan.name}
-                  className={`relative flex flex-col ${
-                    plan.featured ? "border-primary scale-105 shadow-lg" : ""
-                  }`}
-                >
-                  {plan.featured && (
-                    <div className="absolute -top-4 left-1/2 -translate-x-1/2">
-                      <Badge className="bg-primary text-primary-foreground">
-                        Most Popular
-                      </Badge>
-                    </div>
-                  )}
-                  <CardHeader>
-                    <CardTitle>{plan.name}</CardTitle>
-                    <CardDescription>{plan.description}</CardDescription>
-                    <div className="mt-4 flex items-baseline justify-center">
-                      <span className="text-4xl font-bold">{plan.price}</span>
-                      <span className="text-muted-foreground ml-1">/month</span>
-                    </div>
-                  </CardHeader>
-                  <CardContent className="flex-1">
-                    <ul className="space-y-3">
-                      {plan.features.map((feature) => (
-                        <li key={feature} className="flex items-center">
-                          <Check className="text-primary mr-2 h-4 w-4" />
-                          <span>{feature}</span>
-                        </li>
-                      ))}
-                    </ul>
-                  </CardContent>
-                  <CardFooter className="pt-6">
-                    <SubscribeButton plan={plan} />
-                  </CardFooter>
-                </Card>
-              ))}
-            </div>
-          </div>
-        </section>
+        <PricingSection plans={plans} />
       </main>
 
       {/* Footer */}
