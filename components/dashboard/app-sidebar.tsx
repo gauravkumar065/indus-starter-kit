@@ -25,6 +25,7 @@ import {
   SidebarHeader,
   SidebarRail,
 } from "@/components/ui/sidebar";
+import { useUser } from "@clerk/clerk-react";
 
 // This is sample data.
 const data = {
@@ -157,6 +158,17 @@ const data = {
 };
 
 export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
+  const { user } = useUser();
+  if (!user) {
+    return null;
+  }
+
+  data.user = {
+    name: user?.fullName || "",
+    email: user.emailAddresses[0].emailAddress,
+    avatar: user.imageUrl,
+  };
+
   return (
     <Sidebar collapsible="icon" {...props}>
       <SidebarHeader>

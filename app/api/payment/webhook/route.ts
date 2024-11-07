@@ -24,15 +24,15 @@ export async function POST(req: Request) {
     }
 
     switch (event.type) {
-        // case 'checkout.session.completed':
-        //     await handleCheckoutSessionCompleted(event);
-        //     break;
+        case 'checkout.session.completed':
+            await handleCheckoutSessionCompleted(event);
+            break;
         case 'customer.subscription.created':
             await handleSubscriptionEvent(event, 'created');
             break;
-        // case 'customer.subscription.updated':
-        //     await handleSubscriptionEvent(event, 'updated');
-        //     break;
+        case 'customer.subscription.updated':
+            await handleSubscriptionEvent(event, 'updated');
+            break;
         default:
             console.log(`Unhandled event type ${event.type}`);
     }

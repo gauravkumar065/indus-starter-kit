@@ -34,9 +34,6 @@ function DashboardNavbar() {
           </Breadcrumb>
           <div className="absolute right-5 flex gap-5">
             <ModeToggle />
-            <SignedOut>
-              <SignInButton />
-            </SignedOut>
             <SignedIn>
               <UserButton />
             </SignedIn>
