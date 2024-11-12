@@ -19,10 +19,10 @@ import {
   navigationMenuTriggerStyle,
 } from "@/components/ui/navigation-menu";
 import { cn } from "@/lib/utils";
-import FeatureSection from "@/components/landing/feature";
-import PricingSection from "@/components/landing/pricing";
-import HeroSection from "@/components/landing/hero";
-import Footer from "@/components/landing/footer";
+import FeatureSection from "@/components/pages/landing/feature";
+import PricingSection from "@/components/pages/landing/pricing";
+import HeroSection from "@/components/pages/landing/hero";
+import Footer from "@/components/pages/landing/footer";
 
 export default function LandingPage() {
   const navItems = [

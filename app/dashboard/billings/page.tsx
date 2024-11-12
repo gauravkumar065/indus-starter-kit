@@ -12,7 +12,7 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 import { Skeleton } from "@/components/ui/skeleton";
-import { getSubscription } from "@/actions/getSubscription";
+import { getSubscription } from "@/server/actions/getSubscription";
 
 export default function BillingPage() {
   const [subscriptionData, setSubscriptionData]: any = useState(null);
