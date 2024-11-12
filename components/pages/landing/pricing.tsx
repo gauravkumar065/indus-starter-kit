@@ -9,7 +9,7 @@ import {
 } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Check } from "lucide-react";
-import { SubscribeButton } from "@/components/landing/checkout-button";
+import { SubscribeButton } from "@/components/pages/landing/checkout-button";
 
 const PricingSection = ({ plans }: { plans: any }) => {
   return (

@@ -14,10 +14,10 @@ import {
   SquareTerminal,
 } from "lucide-react";
 
-import { NavMain } from "@/components/dashboard/nav-main";
-import { NavProjects } from "@/components/dashboard/nav-projects";
-import { NavUser } from "@/components/dashboard/nav-user";
-import { TeamSwitcher } from "@/components/dashboard/team-switcher";
+import { NavMain } from "@/components/pages/dashboard/nav-main";
+import { NavProjects } from "@/components/pages/dashboard/nav-projects";
+import { NavUser } from "@/components/pages/dashboard/nav-user";
+import { TeamSwitcher } from "@/components/pages/dashboard/team-switcher";
 import {
   Sidebar,
   SidebarContent,
