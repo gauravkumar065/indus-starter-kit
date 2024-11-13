@@ -16,9 +16,16 @@ import {
   Server,
   User,
   CreditCard,
+  FileCode2,
 } from "lucide-react";
 
 const features = [
+  {
+    title: "Next.js",
+    description: "The React Framework for the Web",
+    color: "bg-gray-500",
+    icon: <FileCode2 />,
+  },
   {
     title: "Zod",
     description:
