@@ -8,7 +8,7 @@ import {
   CardDescription,
 } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import successImage from "@/public/success.svg";
+import failedImage from "@/public/failed.svg";
 
 const FullPageFailedPayment = () => {
   return (
@@ -17,25 +17,25 @@ const FullPageFailedPayment = () => {
         <div className="grid h-full grid-cols-1 md:grid-cols-2">
           <div className="flex items-center justify-center">
             <Image
-              src={successImage}
-              alt="Payment Success"
+              src={failedImage}
+              alt="Payment Failed"
               width={400}
               height={400}
             />
           </div>
           <div className="flex flex-col items-start justify-center">
             <CardHeader>
-              <CardTitle className="text-3xl text-pink-600">
-                Payment Successful
+              <CardTitle className="text-3xl text-red-600">
+                Payment Failed
               </CardTitle>
             </CardHeader>
             <CardContent>
               <CardDescription className="text-xl">
-                Thank you for your purchase! Your payment has been processed
-                successfully.
+                We apologize, but your payment was not successful. Please check
+                your payment information and try again.
               </CardDescription>
               <div className="mt-6 flex">
-                <Button>Continue Shopping</Button>
+                <Button variant="destructive">Try Again</Button>
               </div>
             </CardContent>
           </div>
